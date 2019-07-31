@@ -41,7 +41,7 @@ The following table defines each individual language construct in detail and equ
 <img src="table.png" width="700px"/>
 
 
-The general **structure** of a SCDL descriptor is thus as follows:
+The general **structure** of an SCDL descriptor is thus as follows:
 
 ```javascript
 { "scdl_version" : "1.0.0",       // generic smart contract properties
@@ -68,4 +68,4 @@ The general **structure** of a SCDL descriptor is thus as follows:
 
 
 ## Example
-tbd
+* [ZilliqaToken Ethereum contract](zilliqa.json) (TO BE UPDATED)
