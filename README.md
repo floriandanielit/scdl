@@ -17,7 +17,7 @@ This document specifies the Smart Contract Description Language (SCDL) intended 
 ## Language metamodel
 The metamodel of SCDL is illustrated by the following figure, which introduces all the necessary concepts and relationships.
 
-![alt text](metamodel.png "Metamodel of SCDL")
+<img src="metamodel.png" width="500px"/>
 
 According to the metamodel, a smart contract can be seen as a blockchain- or web-accessible entity that is characterized by a set of descriptive metadata elements, a set of functions and a set of events.
 
@@ -38,7 +38,7 @@ The translation from the metamodel to a concrete syntax follows few simple rules
 
 The following table defines each individual language construct in detail and equips it with a respective domain of possible values.
 
-![alt text](table.png "Syntax elements of SCDL")
+<img src="table.png" width="700px"/>
 
 
 The general **structure** of a SCDL descriptor is thus as follows:
