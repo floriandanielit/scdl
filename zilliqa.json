@@ -7,15 +7,37 @@
 	"description" : "Contract token implementation following the ERC20 standars, the new created token is called ZIL",
 	"created_on" : "Jan-12-2018 09:44:42 AM +UTC",
 	"updated_on" : "Jan-12-2018 09:44:42 AM +UTC",
-	"ucl" : "",
+	"ucl" : "https://mygateway.com?blockchain=ethereum&blockchain-id=eth-mainnet&address=0x05f4a42e251f2d52b8ed15E9FEdAacFcEF1FAD27",
 	"internal_address" : "0x05f4a42e251f2d52b8ed15E9FEdAacFcEF1FAD27",
 	"blockchain_type" : "ethereum",
 	"blockchain_version" : "v0.4.18+commit.9cf6e910",
 	"metadata" : "https://etherscan.io/address/0x05f4a42e251f2d52b8ed15e9fedaacfcef1fad27#code",
 	"hash" : "b311edaec5a164050cede3219bf28cc6ce4c0ca43b8bf34d6fd309fb60c4d1d8  -",
 	"is_stateful" : true,
+	"lifecycle" : "ready",
 	"functions" : [
-		...,
+		{
+			"name" : "balanceOf",
+			"description" : "* @dev Gets the balance of the specified address. @param _owner The address to query the the balance of. @return An uint256 representing the amount owned by the passed address.",
+			"scope" : "public",
+			"has_side_effects" : false,
+			"inputs" : [
+				{
+					"name": "_owner",
+					"nat_type" : "address",
+					"abs_type" : "number"
+				}
+			],
+			"outputs" : [
+				{
+					"name": null,
+					"nat_type" : "uint256",
+					"abs_type" : "number"
+				}
+			],
+			"events" : null,
+			"dispatcher" : null
+		},
 		{
 			"name" : "transfer",
 			"description" : "* @dev transfer token for a specified address. @param _to The address to transfer to. @param _value The amount to be transferred.",
@@ -24,52 +46,414 @@
 			"inputs" : [
 				{
 					"name": "_to",
-					"type" : "address",
-					"abstract_type" : "number"
+					"nat_type" : "address",
+					"abs_type" : "number"
 				},
 				{
 					"name": "_value",
-					"type" : "uint256",
-					"abstract_type" : "number"
+					"nat_type" : "uint256",
+					"abs_type" : "number"
 				}
 			],
 			"outputs" : [
 				{
 					"name": null,
-					"type" : "bool",
-					"abstract_type" : "boolean"
+					"nat_type" : "bool",
+					"abs_type" : "boolean"
 				}
 			],
 			"events" : ["Transfer"],
 			"dispatcher" : null
 		},
-		...
+		{
+			"name" : "allowance",
+			"description" : "@dev Function to check the amount of tokens that an owner allowed to a spender. @param _owner address The address which owns the funds. @param _spender address The address which will spend the funds. @return A uint256 specifying the amount of tokens still available for the spender.",
+			"scope" : "public",
+			"has_side_effects" : false,
+			"inputs" : [
+				{
+					"name": "_owner",
+					"nat_type" : "address",
+					"abs_type" : "number"
+				},
+				{
+					"name": "_spender",
+					"nat_type" : "address",
+					"abs_type" : "number"
+				}
+			],
+			"outputs" : [
+				{
+					"name": null,
+					"nat_type" : "uint256",
+					"abs_type" : "number"
+				}
+			],
+			"events" : null,
+			"dispatcher" : null
+		},
+		{
+			"name" : "transferFrom",
+			"description" : "@dev Transfer tokens from one address to another. @param _from address The address which you want to send tokens from. @param _to address The address which you want to transfer to. @param _value uint256 the amount of tokens to be transferred",
+			"scope" : "public",
+			"has_side_effects" : true,
+			"inputs" : [
+				{
+					"name": "_from",
+					"nat_type" : "address",
+					"abs_type" : "number"
+				},
+				{
+					"name": "_to",
+					"nat_type" : "address",
+					"abs_type" : "number"
+				},
+				{
+					"name": "_value",
+					"nat_type" : "uint256",
+					"abs_type" : "number"
+				}
+			],
+			"outputs" : [
+				{
+					"name": null,
+					"nat_type" : "bool",
+					"abs_type" : "boolean"
+				}
+			],
+			"events" : ["Transfer"],
+			"dispatcher" : null
+		},
+		{
+			"name" : "approve",
+			"description" : "@dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender. @param _spender The address which will spend the funds. @param _value The amount of tokens to be spent.",
+			"scope" : "public",
+			"has_side_effects" : true,
+			"inputs" : [
+				{
+					"name": "_spender",
+					"nat_type" : "address",
+					"abs_type" : "number"
+				},
+				{
+					"name": "_value",
+					"nat_type" : "uint256",
+					"abs_type" : "number"
+				}
+			],
+			"outputs" : [
+				{
+					"name": null,
+					"nat_type" : "bool",
+					"abs_type" : "boolean"
+				}
+			],
+			"events" : ["Approval"],
+			"dispatcher" : null
+		},
+		{
+			"name" : "increaseApproval",
+			"description" : "approve should be called when allowed[_spender] == 0. To increment allowed value is better to use this function to avoid 2 calls (and wait until the first transaction is mined) From MonolithDAO Token.sol",
+			"scope" : "public",
+			"has_side_effects" : true,
+			"inputs" : [
+				{
+					"name": "_spender",
+					"nat_type" : "address",
+					"abs_type" : "number"
+				},
+				{
+					"name": "_addedValue",
+					"nat_type" : "uint256",
+					"abs_type" : "number"
+				}
+			],
+			"outputs" : [
+				{
+					"name": null,
+					"nat_type" : "bool",
+					"abs_type" : "boolean"
+				}
+			],
+			"events" : ["Approval"],
+			"dispatcher" : null
+		},
+		{
+			"name" : "decreaseApproval",
+			"description" : "",
+			"scope" : "public",
+			"has_side_effects" : true,
+			"inputs" : [
+				{
+					"name": "_spender",
+					"nat_type" : "address",
+					"abs_type" : "number"
+				},
+				{
+					"name": "_addedValue",
+					"nat_type" : "uint256",
+					"abs_type" : "number"
+				}
+			],
+			"outputs" : [
+				{
+					"name": null,
+					"nat_type" : "bool",
+					"abs_type" : "boolean"
+				}
+			],
+			"events" : ["Approval"],
+			"dispatcher" : null
+		},
+		{
+			"name" : "transferOwnership",
+			"description" : "@dev Allows the current owner to transfer control of the contract to a newOwner. @param newOwner The address to transfer ownership to.",
+			"scope" : "public",
+			"has_side_effects" : false,
+			"inputs" : [
+				{
+					"name": "newOwner",
+					"nat_type" : "address",
+					"abs_type" : "number"
+				}
+			],
+			"outputs" : null,
+			"events" : ["OwnershipTransferred"],
+			"dispatcher" : null
+		},
+		{
+			"name" : "pause",
+			"description" : "@dev called by the owner to set new pause flags, pausedPublic can't be false while pausedOwnerAdmin is true",
+			"scope" : "public",
+			"has_side_effects" : false,
+			"inputs" : [
+				{
+					"name": "newPausedPublic",
+					"nat_type" : "bool",
+					"abs_type" : "boolean"
+				},
+				{
+					"name": "newPausedOwnerAdmin",
+					"nat_type" : "bool",
+					"abs_type" : "boolean"
+				}
+			],
+			"outputs" : null,
+			"events" : ["PausePublic", "PauseOwnerAdmin"],
+			"dispatcher" : null
+		},
+		{
+			"name" : "burn",
+			"description" : "",
+			"scope" : "public",
+			"has_side_effects" : false,
+			"inputs" : [
+				{
+					"name": "_value",
+					"nat_type" : "uint256",
+					"abs_type" : "number"
+				}
+			],
+			"outputs" : [
+				{
+					"name": null,
+					"nat_type" : "bool",
+					"abs_type" : "boolean"
+				},
+			],
+			"events" : ["Burn", "Transfer"],
+			"dispatcher" : null
+		},
+		{
+			"name" : "burnFrom",
+			"description" : "Save some gas by making only one contract call",
+			"scope" : "public",
+			"has_side_effects" : false,
+			"inputs" : [
+				{
+					"name": "_from",
+					"nat_type" : "address",
+					"abs_type" : "number"
+				},
+				{
+					"name": "_value",
+					"nat_type" : "uint256",
+					"abs_type" : "number"
+				}
+			],
+			"outputs" : [
+				{
+					"name": null,
+					"nat_type" : "bool",
+					"abs_type" : "boolean"
+				}
+			],
+			"events" : ["Burn", "Transfer"],
+			"dispatcher" : null
+		},
+		{
+			"name" : "emergencyERC20Drain",
+			"description" : "Owner can drain tokens that are sent here by mistake",
+			"scope" : "public",
+			"has_side_effects" : false,
+			"inputs" : [
+				{
+					"name": "token",
+					"nat_type" : "ERC20",
+					"abs_type" : "ERC20_token"
+				},
+				{
+					"name": "amount",
+					"nat_type" : "uint",
+					"abs_type" : "number"
+				}
+			],
+			"outputs" : null,
+			"events" : null,
+			"dispatcher" : null
+		},
+		{
+			"name" : "changeAdmin",
+			"description" : "Owner can re-assign the amdin",
+			"scope" : "public",
+			"has_side_effects" : false,
+			"inputs" : [
+				{
+					"name": "newAdmin",
+					"nat_type" : "address",
+					"abs_type" : "number"
+				}
+			],
+			"outputs" : null,
+			"events" : ["AdminTransferred"],
+			"dispatcher" : null
+		}
 	],
 	"events" : [
-		...,
 		{
 			"name" : "Transfer",
 			"description" : "Triggered when tokens are transferred",
 			"outputs" : [
 				{
 					"name" : "from",
-					"type" : "address",
-					"abstract_type" : "number",
-					"indexed" : true
+					"nat_type" : "address",
+					"abs_type" : "number",
+					"is_indexed" : true
 				},
 				{
 					"name" : "to",
-					"type" : "address",
-					"abstract_type" : "number",
-					"indexed" : true
+					"nat_type" : "address",
+					"abs_type" : "number",
+					"is_indexed" : true
 				},
 				{
 					"name" : "value",
-					"type" : "uint256",
-					"abstract_type" : "number",
-					"indexed" : false
+					"nat_type" : "uint256",
+					"abs_type" : "number",
+					"is_indexed" : false
 				}
 			]
 		},
-		...
+		{
+			"name" : "Approval",
+			"description" : "Triggered when the approve function is called",
+			"output" : [
+				{
+					"name" : "from",
+					"nat_type" : "address",
+					"abs_type" : "number",
+					"is_indexed" : true
+				},
+				{
+					"name" : "to",
+					"nat_type" : "address",
+					"abs_type" : "number",
+					"is_indexed" : true
+				},
+				{
+					"name" : "value",
+					"nat_type" : "uint256",
+					"abs_type" : "number",
+					"is_indexed" : false
+				}
+			]
+		},
+		{
+			"name" : "OwnershipTransferred",
+			"description" : "",
+			"output" : [
+				{
+					"name" : "previousOwner",
+					"nat_type" : "address",
+					"abs_type" : "number",
+					"is_indexed" : true
+				},
+				{
+					"name" : "newOwner",
+					"nat_type" : "address",
+					"abs_type" : "number",
+					"is_indexed" : true
+				}
+			]
+		},
+		{
+			"name" : "PausePublic",
+			"description" : "",
+			"output" : [
+				{
+					"name" : "newState",
+					"nat_type" : "bool",
+					"abs_type" : "boolean",
+					"is_indexed" : false
+				}
+			]
+		},
+		{
+			"name" : "PauseOwnerAdmin",
+			"description" : "",
+			"output" : [
+				{
+					"name" : "newState",
+					"nat_type" : "bool",
+					"abs_type" : "boolean",
+					"is_indexed" : false
+				}
+			]
+		},
+		{
+			"name" : "Burn",
+			"description" : "",
+			"output" : [
+				{
+					"name" : "_burner",
+					"nat_type" : "address",
+					"abs_type" : "number",
+					"is_indexed" : true
+				},
+				{
+					"name" : "_value",
+					"nat_type" : "uint256",
+					"abs_type" : "number",
+					"is_indexed" : false
+				}
+			]
+		},
+		{
+			"name" : "AdminTransferred",
+			"description" : "",
+			"output" : [
+				{
+					"name" : "previousAdmin",
+					"nat_type" : "address",
+					"is_indexed" : true
+				},
+				{
+					"name" : "newAdmin",
+					"nat_type" : "address",
+					"abs_type" : "number",
+					"is_indexed" : true
+				}
+			]
+		}
 	]
+}
