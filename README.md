@@ -68,4 +68,4 @@ The general **structure** of an SCDL descriptor is thus as follows:
 
 
 ## Example
-* [ZilliqaToken Ethereum contract](zilliqa.json) (TO BE UPDATED)
+* [ZilliqaToken Ethereum contract](zilliqa.json)
