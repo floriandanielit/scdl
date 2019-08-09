@@ -7,7 +7,7 @@
 	"description" : "Contract token implementation following the ERC20 standars, the new created token is called ZIL",
 	"created_on" : "Jan-12-2018 09:44:42 AM +UTC",
 	"updated_on" : "Jan-12-2018 09:44:42 AM +UTC",
-	"ucl" : "https://mygateway.com?blockchain=ethereum&blockchain-id=eth-mainnet&address=0x05f4a42e251f2d52b8ed15E9FEdAacFcEF1FAD27",
+	"scl" : "https://mygateway.com?blockchain=ethereum&blockchain-id=eth-mainnet&address=0x05f4a42e251f2d52b8ed15E9FEdAacFcEF1FAD27",
 	"internal_address" : "0x05f4a42e251f2d52b8ed15E9FEdAacFcEF1FAD27",
 	"blockchain_type" : "ethereum",
 	"blockchain_version" : "v0.4.18+commit.9cf6e910",
