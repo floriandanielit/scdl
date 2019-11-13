@@ -1,0 +1,94 @@
+{
+	"scdl_version": "1.0",
+	"name": "Digest",
+	"version": "^0.5.2",
+	"latest_url": "",
+	"author": "",
+	"description": "A simple digests container, This contract can be used to store digests of external operations, each digest is associated to a specific correlation_id",
+	"created_on": "2019-11-13",
+	"updated_on": "2019-11-13",
+	"scl": "https://mygateway.com?blockchain=ethereum&blockchain-id=eth-mainnet&address=0x05f4a42e251f2d52b8ed15E9FEdAacFcEF1FAD27",
+	"internal_address": "0x05f4a42e251f2d52b8ed15E9FEdAacFcEF1FAD27",
+	"blockchain_type": "ethereum",
+	"blockchain_version": "v0.5.11+commit.c082d0b4",
+	"metadata": "",
+	"hash": "",
+	"is_stateful": true,
+	"lifecyle": "ready",
+	"functions": [
+		{
+			"name": "addDigest",
+			"description": "@notice Function that adds a new digest strictly correlated to an identifier, on behalf of a client application. @param corrId is the identifier to which the new digest has to be associated with. @param digest is the new operation digest that has to be added",
+			"scope": "public",
+			"has_side_effects": true,
+			"inputs": [
+				{
+					"name": "corrId",
+					"nat_type": "string",
+					"abs_type": "string"
+				},
+				{
+					"name": "digest",
+					"nat_type": "bytes",
+					"abs_type": "number"
+				}
+			],
+			"outputs": [],
+			"events": ["Add"],
+			"dispatcher": null
+		},
+		{
+			"name": "getDigest",
+			"description": "@notice Function used to retrieve a digest for a given client which is associated to a given corrId. @param client is the address from which retrieve the digest. @param corrId is used to retrieve only those digest that are correlated to this id",
+			"scope": "public",
+			"has_side_effects": false,
+			"inputs": [
+				{
+					"name": "client",
+					"nat_type": "address",
+					"abs_type": "number"
+				},
+				{
+					"name": "corrId",
+					"nat_type": "string",
+					"abs_type": "string"
+				}
+			],
+			"outputs": [
+				{
+					"name": null,
+					"nat_type": "bytes",
+					"abs_type": "number"
+				}
+			],
+			"events": [],
+			"dispatcher": null
+		}
+	],
+	"events": [
+		{
+			"name": "Add",
+			"description": "",
+			"outputs": [
+				{
+					"name": "client",
+					"nat_type": "address",
+					"abs_type": "number",
+					"is_indexed": false
+				},
+				{
+					"name": "corrId",
+					"nat_type": "string",
+					"abs_type": "string",
+					"is_indexed": false
+				},
+				{
+					"name": "digest",
+					"nat_type": "bytes",
+					"abs_type": "number",
+					"is_indexed": false
+				}
+			]
+		}
+	]
+}
