@@ -66,7 +66,13 @@ The general **structure** of an SCDL descriptor is thus as follows:
 }
 ```
 
+## Data encoding
+
+Here we show how blockchain native types of some blockchains can be mapped to JSON Schema.
+
+<img src="encoding.png" width="800px"/>
 
 ## Example
+
 * [ZilliqaToken Ethereum contract](zilliqa.json)
 * [Digest Ethereum contract](digest.json)
