@@ -24,15 +24,20 @@
 			"inputs" : [
 				{
 					"name": "_owner",
-					"nat_type" : "address",
-					"abs_type" : "number"
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					}
 				}
 			],
 			"outputs" : [
 				{
 					"name": null,
-					"nat_type" : "uint256",
-					"abs_type" : "number"
+					"type": {
+						"type": "integer",
+					 	"minimum": 0,
+					 	"maximum": "2^256 - 1"
+					}
 				}
 			],
 			"events" : null,
@@ -46,20 +51,26 @@
 			"inputs" : [
 				{
 					"name": "_to",
-					"nat_type" : "address",
-					"abs_type" : "number"
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					}
 				},
 				{
 					"name": "_value",
-					"nat_type" : "uint256",
-					"abs_type" : "number"
+					"type": {
+						"type": "integer",
+					 	"minimum": 0,
+					 	"maximum": "2^256 - 1"
+					}
 				}
 			],
 			"outputs" : [
 				{
 					"name": null,
-					"nat_type" : "bool",
-					"abs_type" : "boolean"
+					"type" : {
+						"type": "boolean"
+					}
 				}
 			],
 			"events" : ["Transfer"],
@@ -73,20 +84,27 @@
 			"inputs" : [
 				{
 					"name": "_owner",
-					"nat_type" : "address",
-					"abs_type" : "number"
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					}
 				},
 				{
 					"name": "_spender",
-					"nat_type" : "address",
-					"abs_type" : "number"
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					}
 				}
 			],
 			"outputs" : [
 				{
 					"name": null,
-					"nat_type" : "uint256",
-					"abs_type" : "number"
+					"type": {
+						"type": "integer",
+					 	"minimum": 0,
+					 	"maximum": "2^256 - 1"
+					}
 				}
 			],
 			"events" : null,
@@ -100,25 +118,33 @@
 			"inputs" : [
 				{
 					"name": "_from",
-					"nat_type" : "address",
-					"abs_type" : "number"
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					}
 				},
 				{
 					"name": "_to",
-					"nat_type" : "address",
-					"abs_type" : "number"
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					}
 				},
 				{
 					"name": "_value",
-					"nat_type" : "uint256",
-					"abs_type" : "number"
+					"type": {
+						"type": "integer",
+					 	"minimum": 0,
+					 	"maximum": "2^256 - 1"
+					}
 				}
 			],
 			"outputs" : [
 				{
 					"name": null,
-					"nat_type" : "bool",
-					"abs_type" : "boolean"
+					"type" : {
+						"type": "boolean"
+					}
 				}
 			],
 			"events" : ["Transfer"],
@@ -132,20 +158,26 @@
 			"inputs" : [
 				{
 					"name": "_spender",
-					"nat_type" : "address",
-					"abs_type" : "number"
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					}
 				},
 				{
 					"name": "_value",
-					"nat_type" : "uint256",
-					"abs_type" : "number"
+					"type": {
+						"type": "integer",
+					 	"minimum": 0,
+					 	"maximum": "2^256 - 1"
+					}
 				}
 			],
 			"outputs" : [
 				{
 					"name": null,
-					"nat_type" : "bool",
-					"abs_type" : "boolean"
+					"type" : {
+						"type": "boolean"
+					}
 				}
 			],
 			"events" : ["Approval"],
@@ -159,20 +191,26 @@
 			"inputs" : [
 				{
 					"name": "_spender",
-					"nat_type" : "address",
-					"abs_type" : "number"
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					}
 				},
 				{
 					"name": "_addedValue",
-					"nat_type" : "uint256",
-					"abs_type" : "number"
+					"type": {
+						"type": "integer",
+					 	"minimum": 0,
+					 	"maximum": "2^256 - 1"
+					}
 				}
 			],
 			"outputs" : [
 				{
 					"name": null,
-					"nat_type" : "bool",
-					"abs_type" : "boolean"
+					"type" : {
+						"type": "boolean"
+					}
 				}
 			],
 			"events" : ["Approval"],
@@ -186,20 +224,26 @@
 			"inputs" : [
 				{
 					"name": "_spender",
-					"nat_type" : "address",
-					"abs_type" : "number"
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					}
 				},
 				{
 					"name": "_addedValue",
-					"nat_type" : "uint256",
-					"abs_type" : "number"
+					"type": {
+						"type": "integer",
+					 	"minimum": 0,
+					 	"maximum": "2^256 - 1"
+					}
 				}
 			],
 			"outputs" : [
 				{
 					"name": null,
-					"nat_type" : "bool",
-					"abs_type" : "boolean"
+					"type" : {
+						"type": "boolean"
+					}
 				}
 			],
 			"events" : ["Approval"],
@@ -213,8 +257,10 @@
 			"inputs" : [
 				{
 					"name": "newOwner",
-					"nat_type" : "address",
-					"abs_type" : "number"
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					}
 				}
 			],
 			"outputs" : null,
@@ -229,13 +275,15 @@
 			"inputs" : [
 				{
 					"name": "newPausedPublic",
-					"nat_type" : "bool",
-					"abs_type" : "boolean"
+					"type" : {
+						"type": "boolean"
+					}
 				},
 				{
 					"name": "newPausedOwnerAdmin",
-					"nat_type" : "bool",
-					"abs_type" : "boolean"
+					"type" : {
+						"type": "boolean"
+					}
 				}
 			],
 			"outputs" : null,
@@ -250,15 +298,19 @@
 			"inputs" : [
 				{
 					"name": "_value",
-					"nat_type" : "uint256",
-					"abs_type" : "number"
+					"type": {
+						"type": "integer",
+					 	"minimum": 0,
+					 	"maximum": "2^256 - 1"
+					}
 				}
 			],
 			"outputs" : [
 				{
 					"name": null,
-					"nat_type" : "bool",
-					"abs_type" : "boolean"
+					"type" : {
+						"type": "boolean"
+					}
 				},
 			],
 			"events" : ["Burn", "Transfer"],
@@ -272,20 +324,26 @@
 			"inputs" : [
 				{
 					"name": "_from",
-					"nat_type" : "address",
-					"abs_type" : "number"
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					}
 				},
 				{
 					"name": "_value",
-					"nat_type" : "uint256",
-					"abs_type" : "number"
+					"type": {
+						"type": "integer",
+					 	"minimum": 0,
+					 	"maximum": "2^256 - 1"
+					}
 				}
 			],
 			"outputs" : [
 				{
 					"name": null,
-					"nat_type" : "bool",
-					"abs_type" : "boolean"
+					"type" : {
+						"type": "boolean"
+					}
 				}
 			],
 			"events" : ["Burn", "Transfer"],
@@ -299,13 +357,18 @@
 			"inputs" : [
 				{
 					"name": "token",
-					"nat_type" : "ERC20",
-					"abs_type" : "ERC20_token"
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					}
 				},
 				{
 					"name": "amount",
-					"nat_type" : "uint",
-					"abs_type" : "number"
+					"type": {
+						"type": "integer",
+					 	"minimum": 0,
+					 	"maximum": "2^256 - 1"
+					}
 				}
 			],
 			"outputs" : null,
@@ -320,8 +383,10 @@
 			"inputs" : [
 				{
 					"name": "newAdmin",
-					"nat_type" : "address",
-					"abs_type" : "number"
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					}
 				}
 			],
 			"outputs" : null,
@@ -336,20 +401,27 @@
 			"outputs" : [
 				{
 					"name" : "from",
-					"nat_type" : "address",
-					"abs_type" : "number",
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					},
 					"is_indexed" : true
 				},
 				{
 					"name" : "to",
-					"nat_type" : "address",
-					"abs_type" : "number",
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					},
 					"is_indexed" : true
 				},
 				{
 					"name" : "value",
-					"nat_type" : "uint256",
-					"abs_type" : "number",
+					"type": {
+						"type": "integer",
+					 	"minimum": 0,
+					 	"maximum": "2^256 - 1"
+					},
 					"is_indexed" : false
 				}
 			]
@@ -360,20 +432,27 @@
 			"output" : [
 				{
 					"name" : "from",
-					"nat_type" : "address",
-					"abs_type" : "number",
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					},
 					"is_indexed" : true
 				},
 				{
 					"name" : "to",
-					"nat_type" : "address",
-					"abs_type" : "number",
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					},
 					"is_indexed" : true
 				},
 				{
 					"name" : "value",
-					"nat_type" : "uint256",
-					"abs_type" : "number",
+					"type": {
+						"type": "integer",
+					 	"minimum": 0,
+					 	"maximum": "2^256 - 1"
+					},
 					"is_indexed" : false
 				}
 			]
@@ -384,14 +463,18 @@
 			"output" : [
 				{
 					"name" : "previousOwner",
-					"nat_type" : "address",
-					"abs_type" : "number",
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					},
 					"is_indexed" : true
 				},
 				{
 					"name" : "newOwner",
-					"nat_type" : "address",
-					"abs_type" : "number",
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					},
 					"is_indexed" : true
 				}
 			]
@@ -402,8 +485,9 @@
 			"output" : [
 				{
 					"name" : "newState",
-					"nat_type" : "bool",
-					"abs_type" : "boolean",
+					"type" : {
+						"type": "boolean"
+					},
 					"is_indexed" : false
 				}
 			]
@@ -414,8 +498,9 @@
 			"output" : [
 				{
 					"name" : "newState",
-					"nat_type" : "bool",
-					"abs_type" : "boolean",
+					"type" : {
+						"type": "boolean"
+					},
 					"is_indexed" : false
 				}
 			]
@@ -426,14 +511,19 @@
 			"output" : [
 				{
 					"name" : "_burner",
-					"nat_type" : "address",
-					"abs_type" : "number",
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					},
 					"is_indexed" : true
 				},
 				{
 					"name" : "_value",
-					"nat_type" : "uint256",
-					"abs_type" : "number",
+					"type": {
+						"type": "integer",
+					 	"minimum": 0,
+					 	"maximum": "2^256 - 1"
+					},
 					"is_indexed" : false
 				}
 			]
@@ -444,13 +534,18 @@
 			"output" : [
 				{
 					"name" : "previousAdmin",
-					"nat_type" : "address",
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					},
 					"is_indexed" : true
 				},
 				{
 					"name" : "newAdmin",
-					"nat_type" : "address",
-					"abs_type" : "number",
+					"type" : {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					},
 					"is_indexed" : true
 				}
 			]
