@@ -7,8 +7,8 @@
 	"description": "A simple digests container, This contract can be used to store digests of external operations, each digest is associated to a specific correlation_id",
 	"created_on": "2019-11-13",
 	"updated_on": "2019-11-13",
-	"scl": "https://mygateway.com?blockchain=ethereum&blockchain-id=eth-rinkby&address=0x05f4a42e251f2d52b8ed15E9FEdAacFcEF1FAD27",
-	"internal_address": "0x05f4a42e251f2d52b8ed15E9FEdAacFcEF1FAD27",
+	"scl": "https://mygateway.com?blockchain=ethereum&blockchain-id=eth-rinkeby&address=0xe34c0ab61ccaEF2215B694BB6244f007Cd6b5759",
+	"internal_address": "0xe34c0ab61ccaEF2215B694BB6244f007Cd6b5759",
 	"blockchain_type": "ethereum",
 	"blockchain_version": "v0.5.11+commit.c082d0b4",
 	"metadata": "",
@@ -24,13 +24,19 @@
 			"inputs": [
 				{
 					"name": "corrId",
-					"nat_type": "string",
-					"abs_type": "string"
+					"type": {
+						"type": "string"
+					}
 				},
 				{
 					"name": "digest",
-					"nat_type": "bytes",
-					"abs_type": "number"
+					"type": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"pattern": "^[a-fA-F0-9]{2}$"
+						}
+					}
 				}
 			],
 			"outputs": [],
@@ -45,20 +51,28 @@
 			"inputs": [
 				{
 					"name": "client",
-					"nat_type": "address",
-					"abs_type": "number"
+					"type": {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					}
 				},
 				{
 					"name": "corrId",
-					"nat_type": "string",
-					"abs_type": "string"
+					"type": {
+						"type": "string"
+					}
 				}
 			],
 			"outputs": [
 				{
 					"name": null,
-					"nat_type": "bytes",
-					"abs_type": "number"
+					"type": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"pattern": "^[a-fA-F0-9]{2}$"
+						}
+					}
 				}
 			],
 			"events": [],
@@ -72,20 +86,28 @@
 			"outputs": [
 				{
 					"name": "client",
-					"nat_type": "address",
-					"abs_type": "number",
+					"type": {
+						"type": "string",
+						"pattern": "^0x[a-fA-F0-9]{40}$"
+					},
 					"is_indexed": false
 				},
 				{
 					"name": "corrId",
-					"nat_type": "string",
-					"abs_type": "string",
+					"type": {
+						"type": "string"
+					},
 					"is_indexed": false
 				},
 				{
 					"name": "digest",
-					"nat_type": "bytes",
-					"abs_type": "number",
+					"type": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"pattern": "^[a-fA-F0-9]{2}$"
+						}
+					},
 					"is_indexed": false
 				}
 			]
