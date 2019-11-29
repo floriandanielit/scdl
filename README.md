@@ -72,7 +72,13 @@ Here we show how blockchain native types of some blockchains can be mapped to JS
 
 <img src="encoding.png" width="800px"/>
 
-## Example
+## Examples
 
-* [ZilliqaToken Ethereum contract](zilliqa.json)
-* [Digest Ethereum contract](digest.json)
+### ZilliqaToken Ethereum Contract
+
+* [SCDL](zilliqa.json)
+
+### Digest Ethereum Contract
+
+* [Contract](https://github.com/ghareeb-falazi/SCIP-CaseStudy/blob/master/SmartContracts/Ethereum/Digest/contracts/Digest.sol)
+* [SCDL](digest.json)
