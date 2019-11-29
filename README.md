@@ -50,8 +50,11 @@ The general **structure** of an SCDL descriptor is thus as follows:
     { "name" : "convert", ...                   // function properties
       "inputs" : [
         { "name"       : "amount",
-          "abs_type"   : "number",
-          "nat_type"   : "uint64",
+          "type"       : {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2^M - 1
+          }
         }, ...                                   // list of parameters
       ],
       "outputs" : [...],                         // list of parameters
@@ -70,7 +73,7 @@ The general **structure** of an SCDL descriptor is thus as follows:
 
 Here we show how blockchain native types of some blockchains can be mapped to JSON Schema.
 
-<img src="encoding.png" width="800px"/>
+<img src="encoding-table.png" width="800px"/>
 
 ## Examples
 
