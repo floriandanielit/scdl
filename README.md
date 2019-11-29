@@ -43,7 +43,7 @@ The following table defines each individual language construct in detail and equ
 
 The general **structure** of an SCDL descriptor is thus as follows:
 
-```javascript
+```
 { "scdl_version" : "1.0.0",       // generic smart contract properties
   "name" : "TokenConversion", ...    
   "functions" : [
