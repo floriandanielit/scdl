@@ -85,3 +85,13 @@ Here we show how blockchain native types of some blockchains can be mapped to JS
 
 * [Contract](https://github.com/ghareeb-falazi/SCIP-CaseStudy/blob/master/SmartContracts/Ethereum/Digest/contracts/Digest.sol)
 * [SCDL](digest.json)
+
+### Seafood Ethereum Contract
+
+* [Contract](https://github.com/ghareeb-falazi/SCIP-CaseStudy-2/blob/master/SmartContracts/Ethereum/Seafood/contracts/Seafood.sol)
+* [SCDL](seafood.json)
+
+### Dairy Hyperledger Fabric Contract
+
+* [Contract](https://github.com/ghareeb-falazi/SCIP-CaseStudy-2/blob/master/SmartContracts/Fabric/dairy/javascript/lib/dairy.js)
+* [SCDL](dairy.json)

@@ -1,0 +1,319 @@
+{
+  "scdl_version": "1.0",
+  "name": "Dairy",
+  "version": "^0.5.12",
+  "latest_url": "TODO",
+  "author": "TODO",
+  "scl": "TODO",
+  "internal_address": "0x05f4a42e251f2d52b8ed15E9FEdAacFcEF1FAD27",
+  "blockchain_type": "hyperledger-fabric",
+  "blockchain_version": "v0.5.12+commit.7709ece9",
+  "metadata": "TODO",
+  "hash": "TODO",
+  "is_stateful": true,
+  "lifecycle": "ready",
+  "description": "This contract allows all seafood supply chain's involved actors to log their operations in a persistent way",
+  "created_on": "Jan-3-2020 09:44:42 AM +UTC",
+  "updated_on": "Jan-3-2020 09:44:42 AM +UTC",
+  "functions": [
+    {
+      "name": "registerFish",
+      "description": "Register a new fish inside the supply chain ecosystem. fishId is the fish unique identifier. location is the place from which the fish comes from. fishermanName is actor who caught the fish",
+      "scope": "public",
+      "has_side_effects": true,
+      "dispatcher": "",
+      "events": ["fishRegistered"],
+      "inputs": [
+        {
+          "name": "fishId",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "location",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "fishermanName",
+          "type": {
+            "type": "string"
+          }
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "registerShipment",
+      "description": "Register a new fishes' batch shipment. fishIds is a comma separated list of fishId. toLocation is the place where the batch has to be shipped. shipmentCompanyName name of the company in charge to ship the batch",
+      "scope": "public",
+      "has_side_effects": true,
+      "dispatcher": "",
+      "events": ["shipmentRegistered"],
+      "inputs": [
+        {
+          "name": "fishIds",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "toLocation",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "shipmentCompanyName",
+          "type": {
+            "type": "string"
+          }
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "registerPackage",
+      "description": "Register a new fishes' package. fishIds is a comma separated list of fishId. packageId is the unique package identifier. processingFacilityName name of the facility that has processed the package",
+      "scope": "public",
+      "has_side_effects": true,
+      "dispatcher": "",
+      "events": ["packageRegistered"],
+      "inputs": [
+        {
+          "name": "fishIds",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "packageId",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "processingFacilityName",
+          "type": {
+            "type": "string"
+          }
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "registerTransportation",
+      "description": "Register a new transportation. packageId is the identifier of the transported package. toLocation is the place where tha package was transported to. distributorName is the name of the company that transported the package",
+      "scope": "public",
+      "has_side_effects": true,
+      "dispatcher": "",
+      "events": ["packageTransported"],
+      "inputs": [
+        {
+          "name": "packageId",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "toLocation",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "distributorName",
+          "type": {
+            "type": "string"
+          }
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "registerInInventory",
+      "description": "Register a new package in the inventory. packageId is the unique identifier of the package. retailerName name of the retailer who will sell the package",
+      "scope": "public",
+      "has_side_effects": true,
+      "dispatcher": "",
+      "events": ["packageRegisteredInInventory"],
+      "inputs": [
+        {
+          "name": "packageId",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "retailerName",
+          "type": {
+            "type": "string"
+          }
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "registerSelling",
+      "description": "Register that a package was sold. packageId is the unique identifier of the sold package",
+      "scope": "public",
+      "has_side_effects": true,
+      "dispatcher": "",
+      "events": ["packageSold"],
+      "inputs": [
+        {
+          "name": "packageId",
+          "type": {
+            "type": "string"
+          }
+        }
+      ],
+      "outputs": []
+    }
+  ],
+  "events": [
+    {
+      "name": "fishRegistered",
+      "description": "Notify that a new fish has been registered",
+      "outputs": [
+        {
+          "name": "fishId",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        },
+        {
+          "name": "location",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        },
+        {
+          "name": "fishermanName",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        }
+      ]
+    },
+    {
+      "name": "shipmentRegistered",
+      "description": "Notify that a new shipment has been registered",
+      "outputs": [
+        {
+          "name": "fishIds",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        },
+        {
+          "name": "toLocation",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        },
+        {
+          "name": "shipmentCompanyName",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        }
+      ]
+    },
+    {
+      "name": "packageRegistered",
+      "description": "Notify that a new package has been registered",
+      "outputs": [
+        {
+          "name": "fishIds",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        },
+        {
+          "name": "packageId",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        },
+        {
+          "name": "processingFacilityName",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        }
+      ]
+    },
+    {
+      "name": "packageTransported",
+      "description": "Notify that a new package has been transported",
+      "outputs": [
+        {
+          "name": "packageId",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        },
+        {
+          "name": "toLocation",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        },
+        {
+          "name": "distributorName",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        }
+      ]
+    },
+    {
+      "name": "packageRegisteredInInventory",
+      "description": "Notify that a new package has been registered in the inventory",
+      "outputs": [
+        {
+          "name": "packageId",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        },
+        {
+          "name": "retailerName",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        }
+      ]
+    },
+    {
+      "name": "packageSold",
+      "description": "Notify that a new package has been sold",
+      "outputs": [
+        {
+          "name": "packageId",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "scdl_version": "1.0",
+  "name": "Dairy",
+  "version": "TODO",
+  "latest_url": "TODO",
+  "author": "TODO",
+  "scl": "TODO",
+  "internal_address": "0x05f4a42e251f2d52b8ed15E9FEdAacFcEF1FAD27",
+  "blockchain_type": "hyperledger-fabric",
+  "blockchain_version": "TODO",
+  "metadata": "TODO",
+  "hash": "TODO",
+  "is_stateful": true,
+  "lifecycle": "ready",
+  "description": "This contract allows all milk supply chain's involved actors to log their operations in a persistent way",
+  "created_on": "Jan-3-2020 09:44:42 AM +UTC",
+  "updated_on": "Jan-3-2020 09:44:42 AM +UTC",
+  "functions": [
+    {
+      "name": "registerMilkBatch",
+      "description": "Register a new milk batch in the supply chain ecosystem. batchId identifier of the batch. ranchName name of the ranch where the milk was produced. location place where the ranch is located. amount amount of milk in the batch",
+      "scope": "public",
+      "has_side_effects": true,
+      "dispatcher": "Invoke",
+      "events": ["milkBatchRegistered"],
+      "inputs": [
+        {
+          "name": "batchId",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "ranchName",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "location",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "amount",
+          "type": {
+            "type": "number"
+          }
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "transportMilkBatch",
+      "description": "Register that a milk batch was transported, assumed that one entire milk batch is transported at once. logisticsFirmName name of the firm that has transported the milk batch. toLocation place where the batch was transported to. batchId identifier of the milk batch",
+      "scope": "public",
+      "has_side_effects": true,
+      "dispatcher": "Invoke",
+      "events": ["milkBatchTransported"],
+      "inputs": [
+        {
+          "name": "logisticsFirmName",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "toLocation",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "batchId",
+          "type": {
+            "type": "string"
+          }
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "registerMilkCarton",
+      "description": "Register a new milk carton, assumed that at the processing facility, milk from multiple batches is mixed, therefore, a single milk carton could contain milk of multiple batches. processorFirmName name of the firm that has processed the milk carton. location place where the processing has taken place. originBatchIds identifiers of the batches from which the milk was taken. cartonId identifier of the new milk carton",
+      "scope": "public",
+      "has_side_effects": true,
+      "dispatcher": "Invoke",
+      "events": ["cartonRegistered"],
+      "inputs": [
+        {
+          "name": "processorFirmName",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "location",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "originBatchIds",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "cartonId",
+          "type": {
+            "type": "string"
+          }
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "transportCarton",
+      "description": "Register that a new milk carton was transported. distributorName name of the distributor. toLocation place where the carton was transported to. cartonId identifier of the carton",
+      "scope": "public",
+      "has_side_effects": true,
+      "dispatcher": "Invoke",
+      "events": ["cartonTransported"],
+      "inputs": [
+        {
+          "name": "distributorName",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "toLocation",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "cartonId",
+          "type": {
+            "type": "string"
+          }
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "registerCartonInInventory",
+      "description": "Register that a milk carton was stored in the inventory. retailerName name of the reatiler who will sell the carton. cartonId identifier of the carton",
+      "scope": "public",
+      "has_side_effects": true,
+      "dispatcher": "Invoke",
+      "events": ["cartonRegisteredInInventory"],
+      "inputs": [
+        {
+          "name": "retailerName",
+          "type": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "cartonId",
+          "type": {
+            "type": "string"
+          }
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "registerSelling",
+      "description": "Register a new sale. cartonId identifier of the carton ",
+      "scope": "public",
+      "has_side_effects": true,
+      "dispatcher": "Invoke",
+      "events": ["cartonSold"],
+      "inputs": [
+        {
+          "name": "cartonId",
+          "type": {
+            "type": "string"
+          }
+        }
+      ],
+      "outputs": []
+    }
+  ],
+  "events": [
+    {
+      "name": "milkBatchRegistered",
+      "description": "TODO",
+      "outputs": [
+        {
+          "name": "",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        }
+      ]
+    },
+    {
+      "name": "milkBatchTransported",
+      "description": "TODO",
+      "outputs": [
+        {
+          "name": "",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        }
+      ]
+    },
+    {
+      "name": "cartonRegistered",
+      "description": "TODO",
+      "outputs": [
+        {
+          "name": "",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        }
+      ]
+    },
+    {
+      "name": "cartonTransported",
+      "description": "TODO",
+      "outputs": [
+        {
+          "name": "",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        }
+      ]
+    },
+    {
+      "name": "cartonRegisteredInInventory",
+      "description": "TODO",
+      "outputs": [
+        {
+          "name": "",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        }
+      ]
+    },
+    {
+      "name": "cartonSold",
+      "description": "TODO",
+      "outputs": [
+        {
+          "name": "",
+          "type": {
+            "type": "string"
+          },
+          "is_indexed": false
+        }
+      ]
+    }
+  ]
+}
