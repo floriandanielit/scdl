@@ -191,7 +191,7 @@
       "description": "TODO",
       "outputs": [
         {
-          "name": "",
+          "name": "batchId",
           "type": {
             "type": "string"
           },
