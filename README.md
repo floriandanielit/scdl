@@ -54,7 +54,7 @@ The table below summarizes SCDL metadata attributes and their semantics:
 | Functions         | Function[] | non-private smart contract functions.                                                                                                                                                                                                    |
 | Event             | Event[]    | the events that might be emitted during function execution.                                                                                                                                                                              |
 | SCCodeHash        | String     | the SHA256 hash of the smart contract code. This can be used to verify the integrity of a given source code file.        
-| __Entity-Specific Attributes__ |||
+| <td colspan=3>__Entity-Specific Attributes__ |
 | Function.OnlyExternal  | Boolean          | a Boolean that takes the value _true_ iff the function is only accessible via external consumers.                                                                              |
 | Function.SideEffects      | Boolean          | a Boolean that takes the value _true_ iff executing the function might result in altering the smart contract instance state.                                                   |
 | Function.SupportsTx       | Boolean          | a Boolean that takes the value _true_ iff the function can be invoked as part of an atomic distributed transaction.                                                            |
