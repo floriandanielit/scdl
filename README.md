@@ -124,6 +124,15 @@ Client applications can obtain such descriptors using an SCDL repository, for ex
 
 Here we show how blockchain native types of the analyzed blockchain system types can be mapped to JSON Schema.
 
+| SCDL Data Type                                                                                      | Description     | Ethereum           | HL Fabric | Flow               | Neo       | Eos                | HL Sawtooth        | Aptos          | Sui               |
+| --------------------------------------------------------------------------------------------------- | --------------- | ------------------ | --------- | ------------------ | --------- | ------------------ | ------------------ | -------------- | ----------------- |
+| {<br>"type": "integer",<br>"minimum": _\-2<sup>(M-1)</sup>_,<br>"maximum": _+2<sup>(M-1)</sup> - 1_<br>}                    | sigend integer  | int _M_ (e.g., int16) |           | Int _M_ (e.g., Int16) | Integer   | int _M_ (e.g., Int16) | int _M_ (e.g., Int16) |                | Int (M=32)        |
+| { "type": "boolean" }                                                                               | boolean         | bool               |           | Bool               | Boolean   | bool               | bool               | boolean        | Boolean           |
+| { "type": "string" }                                                                                | string          | string             | string    | String             |           | string             | string             |                | String            |
+| {<br>"type": "string",<br>"pattern": "^0x[a-fA-F0-9]{_M_}$"<br>}                                    | account address | address (M=40)     |           | Address (M=64)     |           |                    |                    | address (M=64) | SuiAddress (M=64) |
+| {<br>"type": "array",<br>"items": {"type": "string","pattern": "^[a-fA-F0-9]{2}$"}<br>} | bytes array     | bytes              |           | [UInt8]            | ByteArray | bytes              | bytes              | vector<u8>     |                   |
+| {<br>"type": "array",<br>"items": T<br>}                                                            | any array       | _T_[ ]                |           | [_T_]                |           |                    |                    | vector<_T_>     | vector<_T_>        |
+
 <img src="encoding-table.png" width="800px"/>
 
 ## Examples
