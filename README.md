@@ -2,7 +2,7 @@
 
 **Version**: 2.0.0
 
-**Date**: July 31, 2024
+**Date**: June 23, 2024
 
 **Authors**:  
   Andrea Lamparelli  
