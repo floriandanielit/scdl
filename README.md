@@ -1,8 +1,8 @@
 # Smart Contract Description Language (SCDL)
 
-**Version**: 1.0.0
+**Version**: 2.0.0
 
-**Date**: July 31, 2019
+**Date**: July 31, 2024
 
 **Authors**:  
   Andrea Lamparelli  
@@ -16,6 +16,7 @@ This document specifies the Smart Contract Description Language (SCDL) intended 
 
 ## Language metamodel
 The metamodel of SCDL is illustrated by the following figure, which introduces all the necessary concepts and relationships.
+Attributes annotated with "*" are mandatory.
 
 <img src="metamodel.png" width="500px"/>
 
@@ -27,51 +28,63 @@ Typical **metadata** are generic attributes like contract name, description, aut
 
 **Events** have a name, a description and an ordered list of output parameters. **Parameters** have a name, an abstract data type (for external consumers), a native data type (for internal consumers) and may be indexed to enable consumers to query events on the blockchain.
 
-The metamodel does not explicitly provide any **extensibility** points. If additional properties are needed, these can simply be added as properties to the composite objects of the language, i.e., smart contract, function, event, parameter. For instance, if a provider wants to explicitly mention the programming language of a given smart contract, this could be achieved by adding a language property to the smart contract object.
+The metamodel does not explicitly provide any **extensibility** points. If additional properties are needed, these can simply be added as properties to the composite objects of the language, i.e., smart contract, function, event, and parameter. For instance, if a provider wants to explicitly mention the programming language of a given smart contract, this could be achieved by adding a language property to the smart contract object.
 
 As for now, the specification assumes that there exists a suitable agreement between the provider and the consumer regarding the *costs* the provider may incur when executing smart contracts on behalf of the external consumer (internal consumers are charged directly by the blockchain platform).
 
 ## JSON binding
-The current proposal is to equip the metamodel with a concrete syntax based on JSON, which is a format that is natively supported by multiple blockchain platforms and, hence, maintains consistency with existing conventions.
+The default syntax for the documents that follow the SCDL metamodel, i.e., Smart Contract Descriptors (SCDs), uses JSON.
+The reason behind this choice is that clients of all analyzed smart contract platforms are required to communicate with the blockchain nodes using JSON payloads in order to interact with the hosted smart contracts.
+Hence, this choice maintains consistency with existing conventions and eases adoption for client applications.
+Nonetheless, the metamodel is compatible with other formats, e.g., XML, which can be used if needed.
 
-The translation from the metamodel to a concrete syntax follows few simple rules: *entities with associated properties* are represented as JSON objects with properties; *composition relationships* are translated into JSON arrays; the *order* of parameters of functions or events is expressed by the order of the parameters inside their respective arrays; *abstract data types* of parameters are expressed using [JSON Schema](https://json-schema.org).
+In order to transform an SCD into a JSON object literal, the following rules are followed:
 
-The following table defines each individual language construct in detail and equips it with a respective domain of possible values.
-
-<img src="table.png" width="700px"/>
+- The _SmartContractDescriptor_ entity represents the root object literal.
+- An attribute in the metamodel is transformed into a JSON property.
+The key of this property is derived from the name of the metamodel attribute by using small letters and underscores "_" between words.
+For example, _SCLLanguageVersion_ is transformed into `scl_language_version`.
+Depending on the type of the attribute, the value of the attribute is transformed into a string literal, a number literal, a Boolean literal, or an array of literals.
+Empty optional attributes are omitted from the resulting JSON.
+- A composition relationship between two entities in the metamodel is turned into a JSON property within the parent entity.
+If the child entity occurs only once in the parent entity, e.g., _ParameterType_ in _Parameter_, then the value of the corresponding JSON property is a JSON object literal that represents the child entity.
+However, if the child entity may occur multiple times in the parent entity, e.g., _Function_ in _SmartContractDescriptor_, then the value of the corresponding JSON property is an array of JSON object literals that represent the child entity occurrences.
 
 
 The general **structure** of an SCDL descriptor is thus as follows:
 
-```
-{ "scdl_version" : "1.0.0",       // generic smart contract properties
-  "name" : "TokenConversion", ...    
-  "functions" : [
-    { "name" : "convert", ...                   // function properties
-      "inputs" : [
-        { "name"       : "amount",
-          "type"       : {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 2^M - 1
-          }
-        }, ...                                   // list of parameters
-      ],
-      "outputs" : [...],                         // list of parameters
-      "events"  : [...]                          // list of parameters
-    }, ...                                        // list of functions
-  ],
-  "events" : [
-    { "name"    : "...", ...                       // event properties
-      "outputs" : [...],                         // list of parameters
-    }, ...                                           // list of events
-  ]
+```[json]
+{	
+  "scdl_version" : "1.0.0",		
+	"name": "RoomManager", ...                                   // metadata attributes
+	"functions": [{	
+			"name": "book", ...                                  // function attributes
+			"inputs": [{"name": "amnt","type": "number"},...],   // input params	
+			"outputs": [...],                                    // output params
+			"events": [...]                                      // event names
+	}, ...],
+	"events" : [{ 
+			"name": "Booked", ...                                // event attributes
+			"params": [...],                                     // event params
+	}, ...]
 }
 ```
 
 ## Data encoding
 
-Here we show how blockchain native types of some blockchains can be mapped to JSON Schema.
+To enable external consumers to understand parameter data types without having blockchain-specific knowledge, [JSON Schema](https://json-schema.org/) is used as a basis for a technology-agnostic type system capable of representing any native data type of the supported smart contract platforms.
+The table below shows such mappings for commonly used native data types of three smart contract platforms.
+Note that some SCDL Data Types do not necessarily have corresponding datatypes in all supported blockchain system types.
+For example, the SCDL Data Type that represents a Boolean value does not have a corresponding datatype in Hyperledger Fabric.
+This does not constitute a problem, since any given SCD is specific to a particular smart contract instance hosted on a fixed blockchain system, which means it will only contain SCDL Data Types that do have mappings to this system.
+
+These mappings are used when generating an SCD based on the code of a given smart contract and also when a software component, e.g., the gateway presented in \cref{sec:ch3-concept}, needs to communicate with a smart contract instance with the help of a given SCD.
+
+Using JSON Schema as a basis for SCDL Data Types enables client applications to use existing JSON Schema validation libraries to validate user-provided data before trying to communicate with actual smart contract instances using [SCIP](https://github.com/lampajr/scip).
+Of course, client applications must have access to the SCDs that describe the target smart contract instances in order to extract the SCDL Data Types from them.
+Client applications can obtain such descriptors using an SCDL repository, for example.
+
+Here we show how blockchain native types of the analyzed blockchain system types can be mapped to JSON Schema.
 
 <img src="encoding-table.png" width="800px"/>
 
