@@ -18,7 +18,7 @@ This document specifies the Smart Contract Description Language (SCDL) intended 
 The metamodel of SCDL is illustrated by the following figure, which introduces all the necessary concepts and relationships.
 Attributes annotated with "*" are mandatory.
 
-<img src="metamodel.png" width="500px"/>
+<img src="metamodel.png" width="700px"/>
 
 According to the metamodel, a smart contract can be seen as a blockchain- or web-accessible entity that is characterized by a set of descriptive metadata elements, a set of functions and a set of events.
 
@@ -111,7 +111,7 @@ The general **structure** of an SCDL descriptor is thus as follows:
 ## Data encoding
 
 To enable external consumers to understand parameter data types without having blockchain-specific knowledge, [JSON Schema](https://json-schema.org/) is used as a basis for a technology-agnostic type system capable of representing any native data type of the supported smart contract platforms.
-The table below shows such mappings for commonly used native data types of three smart contract platforms.
+The table below shows such mappings for commonly used native data types of eight smart contract platforms.
 Note that some SCDL Data Types do not necessarily have corresponding datatypes in all supported blockchain system types.
 For example, the SCDL Data Type that represents a Boolean value does not have a corresponding datatype in Hyperledger Fabric.
 This does not constitute a problem, since any given SCD is specific to a particular smart contract instance hosted on a fixed blockchain system, which means it will only contain SCDL Data Types that do have mappings to this system.
@@ -132,8 +132,6 @@ Here we show how blockchain native types of the analyzed blockchain system types
 | {<br>"type": "string",<br>"pattern": "^0x[a-fA-F0-9]{_M_}$"<br>}                                    | account address | address (M=40)     |           | Address (M=64)     |           |                    |                    | address (M=64) | SuiAddress (M=64) |
 | {<br>"type": "array",<br>"items": {"type": "string","pattern": "^[a-fA-F0-9]{2}$"}<br>} | bytes array     | bytes              |           | [UInt8]            | ByteArray | bytes              | bytes              | vector<u8>     |                   |
 | {<br>"type": "array",<br>"items": T<br>}                                                            | any array       | _T_[ ]                |           | [_T_]                |           |                    |                    | vector<_T_>     | vector<_T_>        |
-
-<img src="encoding-table.png" width="800px"/>
 
 ## Examples
 
