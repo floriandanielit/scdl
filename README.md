@@ -94,16 +94,16 @@ The general **structure** of an SCDL descriptor is thus as follows:
 ```[json]
 {	
   "scdl_version" : "1.0.0",		
-	"name": "RoomManager", ...                                   // metadata attributes
+	"name": "RoomManager", ...                                   			// metadata attributes
 	"functions": [{	
-			"name": "book", ...                                  // function attributes
-			"inputs": [{"name": "amnt","type": "number"},...],   // input params	
-			"outputs": [...],                                    // output params
-			"events": [...]                                      // event names
+			"name": "book", ...                                  			// function attributes
+			"inputs": [ {"name": "amnt","type": {"type":"number"}}, ...],   	// input params	
+			"outputs": [...],                                    			// output params
+			"events": [...]                                      			// event names
 	}, ...],
 	"events" : [{ 
-			"name": "Booked", ...                                // event attributes
-			"params": [...],                                     // event params
+			"name": "Booked", ...                                			// event attributes
+			"params": [...],                                     			// event params
 	}, ...]
 }
 ```
@@ -135,21 +135,30 @@ Here we show how blockchain native types of the analyzed blockchain system types
 
 ## Examples
 
-### ZilliqaToken Ethereum Contract
+### V1.0.0
+
+#### ZilliqaToken Ethereum Contract
 
 * [SCDL](zilliqa.json)
 
-### Digest Ethereum Contract
+#### Digest Ethereum Contract
 
 * [Contract](https://github.com/ghareeb-falazi/SCIP-CaseStudy/blob/master/SmartContracts/Ethereum/Digest/contracts/Digest.sol)
 * [SCDL](digest.json)
 
-### Seafood Ethereum Contract
+#### Seafood Ethereum Contract
 
 * [Contract](https://github.com/ghareeb-falazi/SCIP-CaseStudy-2/blob/master/SmartContracts/Ethereum/Seafood/contracts/Seafood.sol)
 * [SCDL](seafood.json)
 
-### Dairy Hyperledger Fabric Contract
+#### Dairy Hyperledger Fabric Contract
 
 * [Contract](https://github.com/ghareeb-falazi/SCIP-CaseStudy-2/blob/master/SmartContracts/Fabric/dairy/javascript/lib/dairy.js)
 * [SCDL](dairy.json)
+
+### V2.0.0
+
+#### Basic Hotel Manager (Ethereum)
+
+* [Contract](BasicHotelManager.sol)
+* [SCDL](BasicHotelManager.json)
