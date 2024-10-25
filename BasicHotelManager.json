@@ -1,0 +1,140 @@
+{
+    "scdl_version": "2.0.0",
+    "address": "http://localhost:9090?blockchain-id=eth-0&blockchain=ethereum&address=0xFdc5e6941140020100fE798E7668677F01F239D1",
+    "creation_date": "2024-10-25T10:51:47.0799584Z",
+    "bc_type": "ethereum",
+    "bc_version": "dencun",
+    "bc_internal_address": "0xFdc5e6941140020100fE798E7668677F01F239D1",
+    "sc_name": "BasicHotelManager",
+    "sc_state": "READY",
+    "sc_version": "1.0",
+    "sc_author": "Ghareeb Falazi",
+    "sc_language": "solidity",
+    "sc_language_version": "0.8.17",
+    "sc_code_hash": "0dcf5aeb50e007d401552fb4cf50ad584add90b226b99c01e9979d1b147ff106",
+    "functions": [
+        {
+            "name": "isRoomAvailable",
+            "only_external": false,
+            "side_effects": false,
+            "supports_tx": false,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "return",
+                    "type": {
+                        "type": "boolean"
+                    }
+                }
+            ],
+            "events": []
+        },
+        {
+            "name": "queryRoomPrice",
+            "only_external": true,
+            "side_effects": false,
+            "supports_tx": false,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "return",
+                    "type": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 115792089237316195423570985008687907853269984665640564039457584007913129639935
+                    },
+                    "description": "uint256"
+                }
+            ],
+            "events": []
+        },
+        {
+            "name": "queryClientBalance",
+            "only_external": false,
+            "side_effects": false,
+            "supports_tx": false,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "return",
+                    "type": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 115792089237316195423570985008687907853269984665640564039457584007913129639935
+                    },
+                    "description": "uint256"
+                }
+            ],
+            "events": []
+        },
+        {
+            "name": "changeRoomPrice",
+            "only_external": true,
+            "side_effects": true,
+            "supports_tx": false,
+            "inputs": [{
+                "name": "newPrice",
+                "type": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 115792089237316195423570985008687907853269984665640564039457584007913129639935
+                },
+                "description": "uint256"
+            }],
+            "outputs": [],
+            "events": []
+        },
+        {
+            "name": "addToClientBalance",
+            "only_external": true,
+            "side_effects": true,
+            "supports_tx": false,
+            "inputs": [{
+                "name": "amountToAdd",
+                "type": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 115792089237316195423570985008687907853269984665640564039457584007913129639935
+                },
+                "description": "uint256"
+            }],
+            "outputs": [],
+            "events": []
+        },
+        {
+            "name": "bookRoom",
+            "only_external": true,
+            "side_effects": true,
+            "supports_tx": false,
+            "inputs": [],
+            "outputs": [],
+            "events": []
+        },
+        {
+            "name": "hasReservation",
+            "only_external": true,
+            "side_effects": false,
+            "supports_tx": false,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "return",
+                    "type": {
+                        "type": "boolean"
+                    }
+                }
+            ],
+            "events": []
+        },
+        {
+            "name": "checkout",
+            "only_external": true,
+            "side_effects": true,
+            "supports_tx": false,
+            "inputs": [],
+            "outputs": [],
+            "events": []
+        }
+    ],
+    "Events": []
+}
